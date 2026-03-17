@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services & Pricing — Sentinel Pest Technologies</title>
+<meta name="description" content="Explore Sentinel Pest Technologies' full range of services: thermal detection, smart perimeter shield, eco-tech elimination, commercial IPM, wildlife control, and 24/7 rapid response. View pricing plans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ---- SERVICES PAGE ---- */
+  .services-full { padding: 7rem 0; }
+  .services-grid-full { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+
+  .service-detail-section { padding: 7rem 0; background:rgba(13,30,58,0.3); }
+  .service-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; margin-bottom:4rem; }
+  .service-detail-grid:nth-child(even) { direction:rtl; }
+  .service-detail-grid:nth-child(even) > * { direction:ltr; }
+  .service-detail-img { border-radius:6px; overflow:hidden; border:1px solid rgba(13,59,110,0.5); }
+  .service-detail-img img { width:100%; height:320px; object-fit:cover; filter:brightness(0.8); }
+  .service-detail-content {}
+  .sdc-tag { font-family:var(--font-sub); font-size:0.65rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--cyan); margin-bottom:0.8rem; }
+  .sdc-title { font-family:var(--font-sub); font-size:1.3rem; font-weight:800; color:var(--white); margin-bottom:1rem; line-height:1.3; }
+  .sdc-desc { font-size:0.9rem; color:var(--slate-400); line-height:1.8; margin-bottom:1.5rem; }
+  .sdc-list { display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.8rem; }
+  .sdc-item { display:flex; align-items:flex-start; gap:0.6rem; font-size:0.85rem; color:var(--slate-100); }
+  .sdc-check { color:var(--electric-green); font-size:0.8rem; margin-top:1px; }
+
+  #pricing { padding: 7rem 0; }
+  .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; align-items:start; }
+
+  .faq-section { padding: 6rem 0; background:rgba(13,30,58,0.3); }
+  .faq-list { display:flex; flex-direction:column; gap:1rem; margin-top:3rem; max-width:800px; margin-left:auto; margin-right:auto; }
+  .faq-item { background:rgba(13,30,58,0.6); border:1px solid rgba(13,59,110,0.4); border-radius:6px; overflow:hidden; }
+  .faq-q { padding:1.4rem 1.8rem; display:flex; align-items:center; justify-content:space-between; cursor:pointer; font-family:var(--font-sub); font-size:0.92rem; font-weight:600; color:var(--white); gap:1rem; transition:var(--transition); }
+  .faq-q:hover { color:var(--cyan); }
+  .faq-icon { font-size:1rem; color:var(--cyan); transition:var(--transition); min-width:20px; text-align:center; }
+  .faq-a { max-height:0; overflow:hidden; transition:max-height 0.4s ease, padding 0.3s ease; }
+  .faq-a p { padding:0 1.8rem 1.4rem; font-size:0.88rem; color:var(--slate-400); line-height:1.75; }
+  .faq-item.open .faq-a { max-height:400px; }
+  .faq-item.open .faq-icon { transform:rotate(45deg); }
+
+  @media (max-width:1024px) {
+    .services-grid-full { grid-template-columns:1fr 1fr; }
+    .pricing-grid { grid-template-columns:1fr; max-width:450px; margin:0 auto; }
+    .pricing-card.featured { transform:scale(1); }
+    .service-detail-grid { grid-template-columns:1fr; }
+    .service-detail-grid:nth-child(even) { direction:ltr; }
+  }
+  @media (max-width:768px) {
+    .services-grid-full { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">🛡️</div>
+        <div class="logo-text">SENTINEL<span>PEST TECHNOLOGIES</span></div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="about.html">Our Tech</a>
+        <a href="contact.html">Contact</a>
+        <a href="#" class="nav-cta" onclick="openModal('Free Scan')">Get Free Scan</a>
+      </div>
+      <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="container">
+    <div class="page-hero-content fade-in">
+      <span class="section-tag">Services & Pricing</span>
+      <h1 class="section-title" style="font-size:clamp(1.8rem,4vw,3rem)">Complete Pest Defense <span>For Every Threat</span></h1>
+      <p class="section-sub">Six integrated service systems — from thermal detection to 24/7 emergency response — all backed by our 30-Day Sentinel Guarantee.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section id="trust">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-item"><span class="trust-icon">🏆</span><span><strong>EPA Certified</strong> Eco-Safe Methods</span></div>
+      <div class="trust-item"><span class="trust-icon">🔬</span><span><strong>Thermal + AI</strong> Detection Tech</span></div>
+      <div class="trust-item"><span class="trust-icon">📋</span><span><strong>Licensed & Insured</strong> Texas Operators</span></div>
+      <div class="trust-item"><span class="trust-icon">🛡️</span><span><strong>30-Day</strong> Satisfaction Guarantee</span></div>
+      <div class="trust-item"><span class="trust-icon">⚡</span><span><strong>Same-Day</strong> Emergency Response</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL SERVICES GRID -->
+<section class="services-full">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:4rem" class="fade-in">
+      <span class="section-tag">All Services</span>
+      <h2 class="section-title">Every Tool in the <span>Sentinel Arsenal</span></h2>
+      <p class="section-sub" style="margin:0 auto">Each service is deployable as a standalone engagement or as part of an integrated protection plan.</p>
+    </div>
+    <div class="services-grid-full">
+      <div class="service-card fade-in">
+        <div class="service-card-number">01 / DETECTION</div>
+        <div class="service-icon-wrap">🌡️</div>
+        <h3 class="service-title">Thermal Infrared Detection</h3>
+        <p class="service-desc">FLIR-certified technicians deploy advanced thermal cameras to detect hidden colonies inside walls, floors, and crawl spaces. Every scan generates a full heat-signature map of your property.</p>
+        <div class="service-tags"><span class="service-tag">IR Scanning</span><span class="service-tag">Termite</span><span class="service-tag">Rodent</span><span class="service-tag">Structural</span></div>
+        <div style="margin-top:1.5rem"><button class="service-learn" onclick="openModal('Thermal Infrared Detection')">Request This Service →</button></div>
+      </div>
+      <div class="service-card fade-in" style="animation-delay:0.1s">
+        <div class="service-card-number">02 / PERIMETER</div>
+        <div class="service-icon-wrap">🔒</div>
+        <h3 class="service-title">Smart Perimeter Shield</h3>
+        <p class="service-desc">IoT micro-sensors deployed at all entry corridors form a continuous monitoring network. Anomalies trigger instant dashboard alerts. The system runs 24/7 and reports every 15 minutes.</p>
+        <div class="service-tags"><span class="service-tag">IoT Sensors</span><span class="service-tag">LoRaWAN</span><span class="service-tag">24/7</span></div>
+        <div style="margin-top:1.5rem"><button class="service-learn" onclick="openModal('Smart Perimeter Shield')">Request This Service →</button></div>
+      </div>
+      <div class="service-card fade-in" style="animation-delay:0.2s">
+        <div class="service-card-number">03 / ELIMINATION</div>
+        <div class="service-icon-wrap">🧪</div>
+        <h3 class="service-title">Eco-Tech Elimination</h3>
+        <p class="service-desc">Precision micro-injection of EPA List N bio-formulations directly into identified pest zones. Zero broad-area spraying — zero harmful residue. Mandatory clearance certificate issued post-treatment.</p>
+        <div class="service-tags"><span class="service-tag">Bio-Safe</span><span class="service-tag">Pet Friendly</span><span class="service-tag">EPA Listed</span></div>
+        <div style="margin-top:1.5rem"><button class="service-learn" onclick="openModal('Eco-Tech Elimination')">Request This Service →</button></div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-card-number">04 / COMMERCIAL</div>
+        <div class="service-icon-wrap">🏢</div>
+        <h3 class="service-title">Commercial IPM Programs</h3>
+        <p class="service-desc">Full Integrated Pest Management for restaurants, warehouses, hotels, and corporate campuses. Includes regulatory-compliant documentation, digital audit trails, and a dedicated account manager.</p>
+        <div class="service-tags"><span class="service-tag">IPM Certified</span><span class="service-tag">Audit-Ready</span><span class="service-tag">Multi-Site</span></div>
+        <div style="margin-top:1.5rem"><button class="service-learn" onclick="openModal('Commercial IPM Programs')">Request This Service →</button></div>
+      </div>
+      <div class="service-card fade-in" style="animation-delay:0.1s">
+        <div class="service-card-number">05 / WILDLIFE</div>
+        <div class="service-icon-wrap">🦝</div>
+        <h3 class="service-title">Humane Wildlife Control</h3>
+        <p class="service-desc">Live-capture and ethical relocation for squirrels, raccoons, opossums, and birds. All entry points sealed with structural repairs. Documented with written warranties against re-entry.</p>
+        <div class="service-tags"><span class="service-tag">Humane</span><span class="service-tag">Relocation</span><span class="service-tag">Exclusion</span><span class="service-tag">Warranted</span></div>
+        <div style="margin-top:1.5rem"><button class="service-learn" onclick="openModal('Humane Wildlife Control')">Request This Service →</button></div>
+      </div>
+      <div class="service-card fade-in" style="animation-delay:0.2s">
+        <div class="service-card-number">06 / EMERGENCY</div>
+        <div class="service-icon-wrap">🚨</div>
+        <h3 class="service-title">24/7 Rapid Response</h3>
+        <p class="service-desc">Same-day emergency dispatch for severe infestations. Guaranteed 4-hour arrival in Austin metro. Fully equipped for immediate containment, treatment, and temporary barrier deployment.</p>
+        <div class="service-tags"><span class="service-tag">Same-Day</span><span class="service-tag">4hr Arrival</span><span class="service-tag">Austin Metro</span></div>
+        <div style="margin-top:1.5rem"><button class="service-learn" onclick="openModal('24/7 Rapid Response')">Request This Service →</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="background:rgba(13,30,58,0.3)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:4rem" class="fade-in">
+      <span class="section-tag">Protection Plans</span>
+      <h2 class="section-title">Choose Your <span>Defense Level</span></h2>
+      <p class="section-sub" style="margin:0 auto">Transparent pricing. No hidden fees. Every plan backed by our 30-Day Sentinel Guarantee — if pests return, we do too, at no cost.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- TIER 1 -->
+      <div class="pricing-card fade-in">
+        <div class="pricing-tier">Tier 01</div>
+        <div class="pricing-name">Core Scan & Treat</div>
+        <div class="pricing-tagline">Essential protection for smaller homes and apartments. Complete thermal scan with targeted treatment.</div>
+        <div class="pricing-price-wrap">
+          <span class="pricing-dollar">$</span>
+          <span class="pricing-amount">149</span>
+          <span class="pricing-period">/ initial visit</span>
+        </div>
+        <div class="pricing-note">+ $69/mo ongoing monitoring (optional)</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li class="pf-item"><div class="pf-check">✓</div><span>Full interior & exterior thermal imaging scan (FLIR technology)</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>Single-zone targeted bio-safe treatment for active infestations</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>Digital assessment report with photographic documentation</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>30-day re-treatment guarantee at no additional charge</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>Entry-point identification & sealing recommendations</span></li>
+        </ul>
+        <button class="pricing-cta secondary-cta" onclick="openModal('Core Scan & Treat — $149')">Select Core Plan →</button>
+      </div>
+      <!-- TIER 2 FEATURED -->
+      <div class="pricing-card featured fade-in" style="animation-delay:0.1s">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-tier">Tier 02</div>
+        <div class="pricing-name">Advanced Perimeter Defense</div>
+        <div class="pricing-tagline">Complete whole-home protection with smart sensor network and quarterly visits.</div>
+        <div class="pricing-price-wrap">
+          <span class="pricing-dollar">$</span>
+          <span class="pricing-amount">349</span>
+          <span class="pricing-period">/ initial setup</span>
+        </div>
+        <div class="pricing-note">+ $129/mo — includes quarterly visits & monitoring</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li class="pf-item"><div class="pf-check">✓</div><span>Everything in Core Scan & Treat, plus all below</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>Smart Perimeter Shield installation with 6 IoT entry sensors</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>Full-perimeter eco-tech barrier treatment — indoor & outdoor</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>Sentinel dashboard access — live perimeter status on any device</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>4 scheduled technician visits per year with detailed reports</span></li>
+        </ul>
+        <button class="pricing-cta primary-cta" onclick="openModal('Advanced Perimeter Defense — $349 + $129/mo')">⚡ Get Protected Now</button>
+      </div>
+      <!-- TIER 3 -->
+      <div class="pricing-card fade-in" style="animation-delay:0.2s">
+        <div class="pricing-tier">Tier 03</div>
+        <div class="pricing-name">Total Ecosystem Protection</div>
+        <div class="pricing-tagline">Maximum-tier, whole-ecosystem defense for large homes, estates, and commercial properties.</div>
+        <div class="pricing-price-wrap">
+          <span class="pricing-dollar">$</span>
+          <span class="pricing-amount">799</span>
+          <span class="pricing-period">/ initial setup</span>
+        </div>
+        <div class="pricing-note">+ $249/mo — unlimited visits, 24/7 emergency response</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li class="pf-item"><div class="pf-check">✓</div><span>Everything in Advanced Perimeter Defense, plus all below</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>Full AI ecosystem analysis with 12-month predictive risk modeling</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>Unlimited technician visits — no per-visit fees, ever</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>24/7 emergency dispatch — guaranteed 4-hour Austin response</span></li>
+          <li class="pf-item"><div class="pf-check">✓</div><span>Annual structural exclusion audit with written contractor referrals</span></li>
+        </ul>
+        <button class="pricing-cta secondary-cta" onclick="openModal('Total Ecosystem Protection — $799 + $249/mo')">Select Elite Plan →</button>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;font-size:0.82rem;color:var(--slate-400)">All prices are for the greater Austin, TX metropolitan area. Commercial properties receive custom quotes. <a href="contact.html" style="color:var(--cyan)">Contact us</a> for multi-property or enterprise pricing.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div style="text-align:center" class="fade-in">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">Common <span>Questions</span></h2>
+      <p class="section-sub" style="margin:0 auto">Everything you need to know before booking your first Sentinel assessment.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>How long does the initial thermal scan take?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>A residential thermal scan typically takes 60–90 minutes for properties up to 3,000 sq ft. Larger homes, multi-unit properties, and commercial spaces may take 2–4 hours. Your technician will provide a time estimate during booking.</p></div>
+      </div>
+      <div class="faq-item fade-in" style="animation-delay:0.05s">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Are your treatments safe for children and pets?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Yes. All Sentinel formulations are EPA List N certified and leave zero harmful residue once dry (typically 2–4 hours). We provide a mandatory clearance certificate after every treatment specifying the safe re-entry time. All products are tested for child and pet safety by independent third-party laboratories.</p></div>
+      </div>
+      <div class="faq-item fade-in" style="animation-delay:0.1s">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>What does the 30-day guarantee cover?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>If pests from the same species and infestation area return within 30 days of your treatment, we return and re-treat at no charge. The guarantee applies to the specific infestation category treated. New infestations from separate entry points or different pest species are not covered under this guarantee but can be addressed as a new service call.</p></div>
+      </div>
+      <div class="faq-item fade-in" style="animation-delay:0.15s">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Do I need to leave my home during treatment?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>For most treatments, yes — we recommend vacating the treated area for 2–4 hours (the clearance period specified on your certificate). Our technician will advise you on the exact duration based on the specific formulation and areas treated. In most cases, untreated rooms can be occupied during treatment.</p></div>
+      </div>
+      <div class="faq-item fade-in" style="animation-delay:0.2s">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>How does the Smart Perimeter Shield work?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>We install LoRaWAN-connected micro-sensors at all identified entry corridors — typically 6–12 units per residential property. Each sensor monitors vibration, temperature changes, and chemical signatures associated with pest activity. They report to our cloud platform every 15 minutes. Any anomaly triggers an instant alert on your Sentinel dashboard and to our operations center for review.</p></div>
+      </div>
+      <div class="faq-item fade-in" style="animation-delay:0.25s">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Can I cancel my monthly monitoring plan?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Yes. Monthly plans can be cancelled with 30 days written notice — no long-term contracts. You keep all installed sensor hardware after 12 consecutive months of service. There are no early termination fees for cancellations after the first 90 days.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="nav-logo" style="margin-bottom:1.2rem;display:inline-flex">
+          <div class="logo-icon">🛡️</div>
+          <div class="logo-text">SENTINEL<span>PEST TECHNOLOGIES</span></div>
+        </a>
+        <p class="footer-desc">Advanced pest intelligence for Austin homeowners and businesses. Thermal detection, smart perimeter defense, and eco-safe elimination.</p>
+        <p style="font-size:0.78rem;color:var(--slate-600)">777 Innovation Way, Suite 300<br>Austin, TX 78701</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Thermal Detection</a></li>
+          <li><a href="services.html">Smart Perimeter Shield</a></li>
+          <li><a href="services.html">Eco-Tech Elimination</a></li>
+          <li><a href="services.html">Commercial IPM</a></li>
+          <li><a href="services.html">Wildlife Control</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">Our Technology</a></li>
+          <li><a href="services.html#pricing">Pricing Plans</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+15125550842">📞 +1-512-555-0842</a></li>
+          <li><a href="mailto:secure@sentinelpesttech.site">✉️ secure@sentinelpesttech.site</a></li>
+          <li style="padding-top:0.5rem"><button class="cta-primary" style="font-size:0.7rem;padding:0.6rem 1.2rem" onclick="openModal('Free Inspection')">Book Free Scan</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Sentinel Pest Technologies, LLC. All rights reserved. Licensed Texas Pest Control Operator #TX-2024-7741.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="#" onclick="document.getElementById('cookie-banner').classList.add('visible');return false">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="leadModal" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalFormContent">
+      <div class="modal-icon">🔍</div>
+      <h2 class="modal-title">Get Your Free Assessment</h2>
+      <p class="modal-subtitle">Book a complimentary thermal scan — no obligation, no pressure.</p>
+      <div class="modal-selected-pkg"><span>📦</span> Selected: <span id="modalPkgName">General Inquiry</span></div>
+      <form onsubmit="handleModalSubmit(event)">
+        <input type="hidden" id="hiddenService" value="">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">First Name *</label><input class="form-input" type="text" placeholder="John" required></div>
+          <div class="form-group"><label class="form-label">Last Name *</label><input class="form-input" type="text" placeholder="Smith" required></div>
+        </div>
+        <div class="form-group"><label class="form-label">Email *</label><input class="form-input" type="email" placeholder="you@example.com" required></div>
+        <div class="form-group"><label class="form-label">Phone *</label><input class="form-input" type="tel" placeholder="+1 (512) 000-0000" required></div>
+        <div class="form-group">
+          <label class="form-label">Service / Package</label>
+          <select class="form-select" id="mService">
+            <option value="Free Thermal Scan">Free Thermal Scan</option>
+            <option value="Thermal Infrared Detection">Thermal Infrared Detection</option>
+            <option value="Smart Perimeter Shield">Smart Perimeter Shield</option>
+            <option value="Eco-Tech Elimination">Eco-Tech Elimination</option>
+            <option value="Commercial IPM Programs">Commercial IPM Programs</option>
+            <option value="Humane Wildlife Control">Humane Wildlife Control</option>
+            <option value="24/7 Rapid Response">24/7 Rapid Response</option>
+            <option value="Core Scan & Treat — $149">Core Scan & Treat — $149</option>
+            <option value="Advanced Perimeter Defense — $349 + $129/mo">Advanced Perimeter Defense</option>
+            <option value="Total Ecosystem Protection — $799 + $249/mo">Total Ecosystem Protection</option>
+            <option value="General Inquiry">General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-checkbox-wrap">
+          <input class="form-checkbox" type="checkbox" id="modalConsent" required>
+          <label class="form-checkbox-label" for="modalConsent">I consent to being contacted and agree to the <a href="privacy.html">Privacy Policy</a>. *</label>
+        </div>
+        <button type="submit" class="cta-primary" style="width:100%;justify-content:center">🚀 Book My Free Scan</button>
+      </form>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-icon">✅</div>
+      <h3>You're All Set!</h3>
+      <p>A Sentinel specialist will contact you within <strong style="color:var(--cyan)">2 business hours</strong>.</p>
+      <br><button class="cta-secondary" onclick="closeModal()">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner">
+  <div class="cookie-text"><strong>🍪 We Use Cookies.</strong> We use cookies to enhance your experience. See our <a href="privacy.html">Privacy Policy</a>.</div>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-decline" onclick="dismissCookie(false)">Manage / Decline</button>
+    <button class="cookie-btn cookie-accept" onclick="dismissCookie(true)">Accept All</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

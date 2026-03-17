@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Sentinel Pest Technologies | Austin, TX</title>
+<meta name="description" content="Contact Sentinel Pest Technologies in Austin, TX. Call +1-512-555-0842, email secure@sentinelpesttech.site, or fill out our form to schedule your free thermal scan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ---- CONTACT PAGE ---- */
+  .contact-main { padding: 7rem 0; }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .contact-details { display:flex; flex-direction:column; gap:1.2rem; margin-bottom:2.5rem; }
+  .contact-item { display:flex; align-items:flex-start; gap:1rem; }
+  .ci-icon { width:40px; height:40px; min-width:40px; background:rgba(26,111,206,0.12); border:1px solid rgba(26,111,206,0.25); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:1rem; }
+  .ci-label { font-family:var(--font-sub); font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--cyan); margin-bottom:0.2rem; }
+  .ci-val { font-size:0.9rem; color:var(--white); line-height:1.5; }
+  .contact-form-wrap { background:rgba(13,30,58,0.6); border:1px solid rgba(13,59,110,0.5); border-radius:8px; padding:2.5rem; }
+
+  .why-contact { padding: 6rem 0; background:rgba(13,30,58,0.3); }
+  .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+  .why-card { background:rgba(13,30,58,0.5); border:1px solid rgba(13,59,110,0.4); border-radius:6px; padding:1.8rem; transition:var(--transition); }
+  .why-card:hover { border-color:rgba(0,229,255,0.25); transform:translateY(-3px); }
+  .why-icon { font-size:1.8rem; margin-bottom:1rem; }
+  .why-title { font-family:var(--font-sub); font-size:0.95rem; font-weight:700; color:var(--white); margin-bottom:0.5rem; }
+  .why-desc { font-size:0.85rem; color:var(--slate-400); line-height:1.7; }
+
+  .map-section { padding: 5rem 0; }
+  .map-placeholder {
+    background: rgba(13,30,58,0.6);
+    border: 1px solid rgba(13,59,110,0.5);
+    border-radius: 8px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-grid-lines {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(13,59,110,0.3) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(13,59,110,0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .map-pin { font-size: 3rem; position:relative; z-index:2; }
+  .map-address { position:relative; z-index:2; text-align:center; }
+  .map-address strong { font-family:var(--font-sub); font-size:1rem; font-weight:700; color:var(--white); display:block; margin-bottom:0.3rem; }
+  .map-address span { font-size:0.85rem; color:var(--slate-400); }
+  .map-pulse {
+    position: absolute;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--cyan);
+    opacity: 0;
+    animation: mapPulse 3s ease-out infinite;
+    z-index: 1;
+  }
+  .map-pulse:nth-child(2) { animation-delay: 1s; }
+  .map-pulse:nth-child(3) { animation-delay: 2s; }
+  @keyframes mapPulse {
+    0% { transform: scale(0.5); opacity: 0.6; }
+    100% { transform: scale(4); opacity: 0; }
+  }
+
+  @media (max-width:1024px) {
+    .contact-inner { grid-template-columns:1fr; gap:3rem; }
+    .why-grid { grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:768px) {
+    .why-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">🛡️</div>
+        <div class="logo-text">SENTINEL<span>PEST TECHNOLOGIES</span></div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">Our Tech</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="#" class="nav-cta" onclick="openModal('Free Thermal Scan')">Get Free Scan</a>
+      </div>
+      <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="container">
+    <div class="page-hero-content fade-in">
+      <span class="section-tag">Get In Touch</span>
+      <h1 class="section-title" style="font-size:clamp(1.8rem,4vw,3rem)">Ready to Secure <span>Your Property?</span></h1>
+      <p class="section-sub">Our Austin-based team is ready to deploy. Reach out via the form, call us directly, or visit our office. We respond to all inquiries within 2 business hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT MAIN -->
+<section class="contact-main">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="fade-in">
+        <span class="section-tag">Contact Information</span>
+        <h2 class="section-title" style="font-size:1.8rem">We're Here to <span>Protect You</span></h2>
+        <p class="section-sub" style="max-width:100%;margin-bottom:2rem">Every inquiry is personally reviewed by a Sentinel specialist. Whether you have a pest emergency or just want to learn more, we're ready to help.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">Office Address</div>
+              <div class="ci-val">777 Innovation Way, Suite 300<br>Austin, TX 78701, United States</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📞</div>
+            <div>
+              <div class="ci-label">Phone</div>
+              <div class="ci-val"><a href="tel:+15125550842" style="color:var(--white);transition:var(--transition)">+1-512-555-0842</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">✉️</div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-val"><a href="mailto:secure@sentinelpesttech.site" style="color:var(--cyan)">secure@sentinelpesttech.site</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">🕐</div>
+            <div>
+              <div class="ci-label">Business Hours</div>
+              <div class="ci-val">Mon–Fri: 7:00 AM – 7:00 PM CST<br>Saturday: 8:00 AM – 5:00 PM CST<br>Sunday: Emergency Response Only</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">⚡</div>
+            <div>
+              <div class="ci-label">Emergency Line</div>
+              <div class="ci-val">24/7 emergency dispatch available for<br>Total Ecosystem Protection plan members</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:1.5rem;background:rgba(0,245,160,0.06);border:1px solid rgba(0,245,160,0.2);border-radius:6px">
+          <div style="font-family:var(--font-sub);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--electric-green);margin-bottom:0.5rem">Response Commitment</div>
+          <div style="font-size:0.88rem;color:var(--slate-100);line-height:1.6">We guarantee a response to all form submissions and emails within <strong style="color:var(--white)">2 business hours</strong> during operating hours. Emergency calls are answered immediately.</div>
+        </div>
+      </div>
+      <div class="contact-form-wrap fade-in" style="animation-delay:0.2s">
+        <div class="form-title">Request Your Free Assessment</div>
+        <p class="form-sub">Fill out the form and a Sentinel specialist will contact you to schedule your complimentary thermal inspection.</p>
+        <form onsubmit="handleContactForm(event)">
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">First Name *</label><input class="form-input" type="text" placeholder="John" required></div>
+            <div class="form-group"><label class="form-label">Last Name *</label><input class="form-input" type="text" placeholder="Smith" required></div>
+          </div>
+          <div class="form-group"><label class="form-label">Email Address *</label><input class="form-input" type="email" placeholder="you@example.com" required></div>
+          <div class="form-group"><label class="form-label">Phone Number *</label><input class="form-input" type="tel" placeholder="+1 (512) 000-0000" required></div>
+          <div class="form-group">
+            <label class="form-label">Service of Interest</label>
+            <select class="form-select">
+              <option value="">Select a service...</option>
+              <option>Thermal Infrared Detection</option>
+              <option>Smart Perimeter Shield</option>
+              <option>Eco-Tech Elimination</option>
+              <option>Commercial IPM Programs</option>
+              <option>Humane Wildlife Control</option>
+              <option>24/7 Rapid Response</option>
+              <option>Core Scan & Treat — $149</option>
+              <option>Advanced Perimeter Defense — $349</option>
+              <option>Total Ecosystem Protection — $799</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tell Us About Your Situation</label>
+            <textarea class="form-textarea" placeholder="Describe what you're experiencing — type of pest, property size, urgency level..."></textarea>
+          </div>
+          <div class="form-checkbox-wrap">
+            <input class="form-checkbox" type="checkbox" id="contactConsent" required>
+            <label class="form-checkbox-label" for="contactConsent">I agree to the <a href="privacy.html">Privacy Policy</a> and consent to being contacted by Sentinel Pest Technologies. I may opt out at any time. *</label>
+          </div>
+          <button type="submit" class="form-submit">Send Message & Request Assessment →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CONTACT -->
+<section class="why-contact">
+  <div class="container">
+    <div style="text-align:center" class="fade-in">
+      <span class="section-tag">Why Sentinel</span>
+      <h2 class="section-title">Three Reasons to <span>Call Today</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-icon">🔍</div>
+        <div class="why-title">Free Thermal Scan — No Strings</div>
+        <div class="why-desc">Our complimentary initial assessment uses the same FLIR technology our paid clients receive. You get a real report with real data — whether you hire us or not.</div>
+      </div>
+      <div class="why-card fade-in" style="animation-delay:0.1s">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Same-Week Appointments</div>
+        <div class="why-desc">We know pest problems don't wait. Most Austin-area appointments are available within 2–3 business days. Emergency same-day slots are held for urgent situations.</div>
+      </div>
+      <div class="why-card fade-in" style="animation-delay:0.2s">
+        <div class="why-icon">🛡️</div>
+        <div class="why-title">Guaranteed Results</div>
+        <div class="why-desc">Every treatment comes with our 30-day re-treatment guarantee. If pests return within the covered area and category, we come back — at zero additional cost to you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP PLACEHOLDER -->
+<section class="map-section">
+  <div class="container">
+    <div style="text-align:center" class="fade-in">
+      <span class="section-tag">Location</span>
+      <h2 class="section-title">Find Us in <span>Austin, TX</span></h2>
+    </div>
+    <div class="map-placeholder fade-in">
+      <div class="map-grid-lines"></div>
+      <div class="map-pulse"></div>
+      <div class="map-pulse"></div>
+      <div class="map-pulse"></div>
+      <div class="map-pin">📍</div>
+      <div class="map-address">
+        <strong>Sentinel Pest Technologies</strong>
+        <span>777 Innovation Way, Suite 300, Austin, TX 78701</span>
+      </div>
+      <a href="https://maps.google.com/?q=777+Innovation+Way+Austin+TX+78701" target="_blank" rel="noopener noreferrer" class="cta-secondary" style="position:relative;z-index:2">Open in Google Maps →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="nav-logo" style="margin-bottom:1.2rem;display:inline-flex">
+          <div class="logo-icon">🛡️</div>
+          <div class="logo-text">SENTINEL<span>PEST TECHNOLOGIES</span></div>
+        </a>
+        <p class="footer-desc">Advanced pest intelligence for Austin homeowners and businesses. Thermal detection, smart perimeter defense, and eco-safe elimination.</p>
+        <p style="font-size:0.78rem;color:var(--slate-600)">777 Innovation Way, Suite 300<br>Austin, TX 78701</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Thermal Detection</a></li>
+          <li><a href="services.html">Smart Perimeter Shield</a></li>
+          <li><a href="services.html">Eco-Tech Elimination</a></li>
+          <li><a href="services.html">Commercial IPM</a></li>
+          <li><a href="services.html">Wildlife Control</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">Our Technology</a></li>
+          <li><a href="services.html#pricing">Pricing Plans</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+15125550842">📞 +1-512-555-0842</a></li>
+          <li><a href="mailto:secure@sentinelpesttech.site">✉️ secure@sentinelpesttech.site</a></li>
+          <li style="padding-top:0.5rem"><button class="cta-primary" style="font-size:0.7rem;padding:0.6rem 1.2rem" onclick="openModal('Free Inspection')">Book Free Scan</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Sentinel Pest Technologies, LLC. All rights reserved. Licensed Texas Pest Control Operator #TX-2024-7741.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="#" onclick="document.getElementById('cookie-banner').classList.add('visible');return false">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="leadModal" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalFormContent">
+      <div class="modal-icon">🔍</div>
+      <h2 class="modal-title">Get Your Free Assessment</h2>
+      <p class="modal-subtitle">Book a complimentary thermal scan — no obligation, no pressure.</p>
+      <div class="modal-selected-pkg"><span>📦</span> Selected: <span id="modalPkgName">General Inquiry</span></div>
+      <form onsubmit="handleModalSubmit(event)">
+        <input type="hidden" id="hiddenService" value="">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">First Name *</label><input class="form-input" type="text" placeholder="John" required></div>
+          <div class="form-group"><label class="form-label">Last Name *</label><input class="form-input" type="text" placeholder="Smith" required></div>
+        </div>
+        <div class="form-group"><label class="form-label">Email *</label><input class="form-input" type="email" placeholder="you@example.com" required></div>
+        <div class="form-group"><label class="form-label">Phone *</label><input class="form-input" type="tel" placeholder="+1 (512) 000-0000" required></div>
+        <div class="form-group">
+          <label class="form-label">Service / Package</label>
+          <select class="form-select" id="mService">
+            <option value="Free Thermal Scan">Free Thermal Scan</option>
+            <option value="Thermal Infrared Detection">Thermal Infrared Detection</option>
+            <option value="Smart Perimeter Shield">Smart Perimeter Shield</option>
+            <option value="Eco-Tech Elimination">Eco-Tech Elimination</option>
+            <option value="Commercial IPM Programs">Commercial IPM Programs</option>
+            <option value="General Inquiry">General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-checkbox-wrap">
+          <input class="form-checkbox" type="checkbox" id="modalConsent" required>
+          <label class="form-checkbox-label" for="modalConsent">I consent to being contacted and agree to the <a href="privacy.html">Privacy Policy</a>. *</label>
+        </div>
+        <button type="submit" class="cta-primary" style="width:100%;justify-content:center">🚀 Book My Free Scan</button>
+      </form>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-icon">✅</div>
+      <h3>You're All Set!</h3>
+      <p>A Sentinel specialist will contact you within <strong style="color:var(--cyan)">2 business hours</strong>.</p>
+      <br><button class="cta-secondary" onclick="closeModal()">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner">
+  <div class="cookie-text"><strong>🍪 We Use Cookies.</strong> We use cookies to enhance your experience. See our <a href="privacy.html">Privacy Policy</a>.</div>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-decline" onclick="dismissCookie(false)">Manage / Decline</button>
+    <button class="cookie-btn cookie-accept" onclick="dismissCookie(true)">Accept All</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
